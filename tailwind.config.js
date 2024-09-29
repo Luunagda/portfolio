@@ -21,13 +21,16 @@ export default {
         'bg-base-100': '#090909',
         'blue-light-cyan': '#94e0f5',
         'blue-dark-cyan': '#11207c',
+        'blue-roi-cyan': '#4154B8',
+        "violet-cyan": "#571B7A",
         'black-cyan': 'rgb(9, 9, 9)',
         'purple-cyan': '#761558',
         'yellow-cyan': '#f0b81b',
         'yellow-ligh-cyan': '#ffeb5d',
+        'black': '#000000',
       },
       fontFamily: {
-        sans: ['Lato', ...defaultTheme.fontFamily.sans],
+        sans: ['Consolas', ...defaultTheme.fontFamily.sans],
         heading: ['Poppins', ...defaultTheme.fontFamily.mono],
       },
       // fontSize: {

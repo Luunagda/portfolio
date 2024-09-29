@@ -1,6 +1,8 @@
 <template>
-  <Header />
+
+  <Header v-if="route.path != '/'"/>
   <RouterView />
+  <Footer/>
   <div>
     <div class="cursor" ref="cursor"></div>
     <div class="cursor2" ref="cursor2"></div>
@@ -12,7 +14,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+console.log(route.path)
 
 const cursor = ref(null);
 const cursor2 = ref(null);
@@ -75,10 +83,7 @@ onBeforeUnmount(() => {
 
 <style>
 
-p, h1, h2, h3, h4, h5, h6, a, li, span {
-  color: #fff !important;
-  @apply font-heading;
-}
+
 
 body {
   background-color:  rgb(9, 9, 9) !important;
@@ -129,5 +134,9 @@ body {
 .cursor2.hover {
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 0 0 rgba(255, 255, 255, 0.2);
+}
+
+a:hover{
+  background-color: inherit;
 }
 </style>

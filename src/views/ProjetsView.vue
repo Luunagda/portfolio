@@ -5,10 +5,10 @@
     <!-- Section de filtrage -->
     <div class="mb-4">
       <button @click="filterCategory = 'all'" class="bg-gray-800 hover:bg-white text-white hover:text-gray-800 py-1 px-4 rounded-full mr-2">Tous</button>
-      <button @click="filterCategory = 'Unity'" class="bg-blue-light-cyan hover:bg-white text-white hover:text-blue-light-cyan py-1 px-4 rounded-full mr-2">Unity</button>
       <button @click="filterCategory = 'Développement web'" class="bg-blue-dark-cyan hover:bg-white hover:text-blue-dark-cyan text-white py-1 px-4 rounded-full mr-2">Développement web</button>
-      <button @click="filterCategory = 'Design'" class="bg-purple-cyan hover:bg-white text-white hover:text-purple-cyan py-1 px-4 rounded-full mr-2">Design</button>
-      <button @click="filterCategory = 'Audiovisuel'" class="bg-yellow-cyan hover:bg-white text-white hover:text-yellow-cyan py-1 px-4 rounded-full">Audiovisuel</button>
+      <button @click="filterCategory = 'Unity'" class="bg-blue-roi-cyan hover:bg-white text-white hover:text-blue-roi-cyan py-1 px-4 rounded-full mr-2">Unity</button>
+      <button @click="filterCategory = 'Audiovisuel'" class="bg-violet-cyan hover:bg-white text-white hover:text-violet-cyan py-1 px-4 rounded-full mr-2">Audiovisuel</button>
+      <button @click="filterCategory = 'Design'" class="bg-purple-cyan hover:bg-white text-white hover:text-purple-cyan py-1 px-4 rounded-full">Design</button>
     </div>
 
     <!-- Projets affichés en 3 colonnes -->
@@ -19,17 +19,18 @@
              @mouseover="showTitle($event, project.title)" 
              @mousemove="moveTitle($event)" 
              @mouseleave="hideTitle"
+             @click="goToProjectDetail(project.title)"
         >
           <div class="relative flex-grow">
             <img :src="project.image" class="w-full h-auto" />
             
             <!-- Tag de catégorie en bas à droite -->
-            <div class="absolute bottom-0 right-0 p-2 flex flex-wrap gap-1">
+            <div class="absolute bottom-0 right-0 p-2 flex flex-wrap gap-1 ">
               <span 
                 v-for="(category, idx) in project.categories" 
                 :key="idx" 
                 :class="categoryClass(category)" 
-                class="text-xs font-medium px-2 py-1 rounded-full"
+                class="text-xs font-medium px-2 py-1 rounded-full category-tag"
               >
                 {{ category }}
               </span>
@@ -52,6 +53,8 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
 import moiImage from '@/assets/img/moi.png';
 import moiImage1 from '@/assets/img/me.png';
 import moiImage2 from '@/assets/img/moi22.png';
@@ -64,24 +67,59 @@ import moiImage7 from '@/assets/img/me222.png';
 import Graphique from '@/assets/img/graphique.png';
 import VoydofSpace from '@/assets/img/voydof_space.png';
 import TimeCapsuleLodge from '@/assets/img/time_capsule_lodge.png';
+import Bref from '@/assets/img/bref.png';
+import VV from '@/assets/img/vv.png';
+import Symfony from '@/assets/img/symfony.jpg';
+import Carriole from '@/assets/img/carriole.png';
+import Galerie from '@/assets/img/galerie.png';
 
+
+
+
+const router = useRouter();
 // Projets et catégories
 const projects = ref([
-  { title: 'Voydof Space', image: VoydofSpace, categories: ['Design', 'Développement web', 'Audiovisuel'] },
-  { title: 'Time Capsule Lodge', image: TimeCapsuleLodge, categories: ['Développement web'] },
-  { title: 'Bref, j\'ai beaucoup de passions', image: moiImage2, categories: ['Audiovisuel'] },
-  { title: 'Course de carriole', image: moiImage3, categories: ['Unity'] },
-  { title: 'Erakis', image: moiImage4, categories: ['Design'] },
-  { title: 'Graphique sur le nombre d\'entrée par film au cinéma', image: Graphique, categories: ['Développement web', 'Design'] },
-  { title: 'Visite virtuelle de l\'IUT', image: moiImage6, categories: ['Développement web', 'Audiovisuel'] },
-  { title: 'Photomontage', image: moiImage7, categories: ['Design'] },
-  { title: 'Projet angular ', image: moiImage6, categories: ['Développement web'] },
-  { title: 'Création d\'un Backoffice', image: moiImage, categories: ['Développement web'] },
-  { title: 'Galerie moteur de recherche', image: moiImage1, categories: ['Unity'] },
-  { title: 'Carte Leaflet', image: moiImage5, categories: ['Développement web'] },
-  { title: 'Jeu Phaser multijoueur', image: moiImage, categories: ['Développement web'] },
-  { title: 'Rugby', image: moiImage3, categories: ['Développement web', 'Unity', 'Audiovisuel'] },
+  { title: 'Voydof Space', image: VoydofSpace, categories: ['Design', 'Développement web', 'Audiovisuel'], slug: formatString('Voydof Space') },
+  { title: 'Time Capsule Lodge', image: TimeCapsuleLodge, categories: ['Développement web'], slug: formatString('Time Capsule Lodge') },
+  { title: 'Bref, j\'ai beaucoup de passions', image: Bref, categories: ['Audiovisuel'], slug: formatString('Bref, j\'ai beaucoup de passions') },
+  { title: 'Course de carriole', image: Carriole, categories: ['Unity'], slug: formatString('Course de carriole') },
+  // { title: 'Erakis', image: moiImage4, categories: ['Design'], slug: formatString('Erakis') },
+  { title: 'Graphique sur le nombre d\'entrée par film au cinéma', image: Graphique, categories: ['Développement web', 'Design'], slug: formatString('Graphique sur le nombre d\'entrée par film au cinéma') },
+  { title: 'Visite virtuelle de l\'IUT', image: VV, categories: ['Développement web', 'Audiovisuel'], slug: formatString('Visite virtuelle de l\'IUT') },
+  // { title: 'Photomontage', image: moiImage7, categories: ['Design'], slug: formatString('Photomontage') },
+  // { title: 'Projet angular ', image: moiImage6, categories: ['Développement web'], slug: formatString('Projet angular ') },
+  { title: 'Création d\'un Backoffice', image: Symfony, categories: ['Développement web'], slug: formatString('Création d\'un Backoffice') },
+  { title: 'Galerie moteur de recherche', image: Galerie, categories: ['Unity'], slug: formatString('Galerie moteur de recherche') },
+  //{ title: 'Carte Leaflet', image: moiImage5, categories: ['Développement web'], slug: formatString('Carte Leaflet') },
+  // { title: 'Jeu Phaser multijoueur', image: moiImage, categories: ['Développement web'], slug: formatString('Jeu Phaser multijoueur') },
+  // { title: 'Rugby', image: moiImage3, categories: ['Développement web', 'Unity', 'Audiovisuel'], slug: formatString('Rugby') },
 ]);
+
+
+function formatString(input) {
+  // Mettre le texte en minuscules
+  let formattedString = input.toLowerCase();
+
+  // Supprimer les accents
+  formattedString = formattedString.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  // Supprimer la ponctuation (exclut les espaces)
+  formattedString = formattedString.replace(/[.,\/#'"!$%\^&\*;:{}=\-_`~()]/g, '');
+
+  // Remplacer les espaces par des tirets
+  formattedString = formattedString.replace(/\s+/g, '-');
+
+  return formattedString;
+}
+
+
+const goToProjectDetail = (projectTitle) => {
+  const project = projects.value.find(project => project.title === projectTitle);
+  console.log(project.slug);
+  if (project) {
+    router.push({ name: 'ProjetDetail', params: { slug: project.slug } });
+  }
+};
 
 // Variables pour la gestion du titre flottant
 const mouseX = ref(0);
@@ -130,13 +168,13 @@ const projectColumns = computed(() => {
 const categoryClass = (category) => {
   switch (category) {
     case 'Unity':
-      return 'bg-blue-light-cyan text-white';
+      return 'bg-blue-roi-cyan text-white';
     case 'Développement web':
       return 'text-white bg-blue-dark-cyan';
     case 'Design':
       return 'text-white bg-purple-cyan';
     case 'Audiovisuel':
-      return 'text-white bg-yellow-cyan';
+      return 'text-white bg-violet-cyan';
     default:
       return 'text-white bg-gray-800';
   }
@@ -154,6 +192,10 @@ const categoryClass = (category) => {
   font-family: Painted;
   font-size: 3.5rem;
   margin-bottom: 4rem;
+  color: #fff;
+}
+.category-tag{
+  color: #fff !important;
 }
 .title-hover {
   z-index: 10;

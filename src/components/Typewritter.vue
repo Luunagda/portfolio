@@ -1,7 +1,7 @@
 <template>
     <div class="typing-container">
       <span class="typing">{{ currentWord }}</span>
-      <span class="cursor">|</span>
+      <span class="cursor-type">|</span>
     </div>
   </template>
   
@@ -49,13 +49,16 @@
   </script>
   
   <style scoped>
+  p, h1, h2, h3, h4, h5, h6, a, li, span {
+  color: #fff !important;
+  @apply font-heading;
+}
   .typing-container {
-    font-family: 'Courier', monospace;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: inline;
   }
   
-  .cursor {
+  .cursor-type {
     font-weight: 100;
     color: black;
     animation: blink 0.7s step-end infinite;

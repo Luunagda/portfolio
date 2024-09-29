@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AccueilView from '../views/AccueilView.vue'
+import ProjetDetail from '../views/ProjetDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,12 @@ const router = createRouter({
       path: '/projets',
       name: 'projets',
       component: () => import('../views/ProjetsView.vue')
+    },
+    {
+      path: '/projets/:slug',
+      name: 'ProjetDetail',
+      component: ProjetDetail,
+      props: true, // Permet de passer des props à la route
     }
   ]
 })

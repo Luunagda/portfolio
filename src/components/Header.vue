@@ -4,6 +4,96 @@
       <h1>Portfolio</h1>
     </div>
     <div class="dropdown flex-none dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+        <li v-for="({ label, link }, i) in collection" :key="i">
+          <RouterLink :to="link">
+            {{ label }}
+          </RouterLink>
+        </li>
+        <li>
+          <a href="@/assets/CV.pdf" download="CV.pdf">
+            CV
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-end hidden sm:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li v-for="({ label, link }, i) in collection" :key="i">
+          <RouterLink :to="link" class="text-sm font-bold text-heading transition dark:text-white">
+            {{ label }}
+          </RouterLink>
+        </li>
+        <li>
+          <a href="@/assets/CV.pdf" download="CV.pdf">
+            <img src="@/assets/img/cv.png" alt="Télécharger le CV"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const collection = ref([
+  { label: 'Accueil', link: '/' },
+  { label: 'A propos', link: '/a-propos' },
+  { label: 'Projets', link: '/projets' }
+])
+</script>
+
+<style scoped>
+p, h1, h2, h3, h4, h5, h6, a, li, span {
+  color: #fff !important;
+  @apply font-heading;
+}
+.navbar {
+  background-color: rgba(9, 9, 9, 0.3);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+}
+ul{
+  display: flex;
+  align-items: center;
+}
+h1 {
+  font-family: 'Glitch_Paradise';
+  font-size: 3rem;
+  margin-left: 10px;
+  padding: 0;
+}
+</style>
+
+
+
+
+<!-- <template>
+  <div v-if="collection.length" class="navbar fixed">
+    <div class="flex-1">
+      <h1>Portfolio</h1>
+    </div>
+    <div class="dropdown flex-none dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,15 +148,13 @@
     </div>
   </div>
 </template>
-
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
 
-// Refs pour les éléments du menu
 const menuItemEls = ref([]) 
-const dotPosition = ref()
+const dotPosition = ref(null)
 const route = useRoute()
 
 const collection = ref([
@@ -75,34 +163,51 @@ const collection = ref([
   { label: 'Projets', link: '/projets' }
 ])
 
-let activeMenuIndex = 0
+let activeMenuIndex = ref(0)
 
 onMounted(async () => {
-  // Attendre que tous les éléments du DOM soient montés avant de définir l'index
   await nextTick()
-  
-  // Récupérer l'index du menu correspondant à la route actuelle
-  activeMenuIndex = collection.value.findIndex(({ link }) => route.path === link || route.path.startsWith(`${link}/`))
 
-  // Si l'index est trouvé, mettre à jour la position du dot
-  if (activeMenuIndex !== -1) {
-    updateDotPosition(activeMenuIndex)
+  updateActiveMenuIndex()
+
+  // Mettre à jour la position du dot au démarrage
+  if (activeMenuIndex.value !== -1) {
+    updateDotPosition(activeMenuIndex.value)
   }
 })
 
-// Mettre à jour la position du dot sur redimensionnement de la fenêtre
-useEventListener('resize', () => updateDotPosition(activeMenuIndex))
+// Surveiller les changements de route pour mettre à jour le dot
+watch(route, () => {
+  updateActiveMenuIndex()
+  updateDotPosition(activeMenuIndex.value)
+})
 
-function updateDotPosition(index = activeMenuIndex) {
-  // Si l'élément correspondant est trouvé, on et à jour la position du dot
+// Mettre à jour la position du dot sur redimensionnement de la fenêtre
+useEventListener('resize', () => updateDotPosition(activeMenuIndex.value))
+
+function updateActiveMenuIndex() {
+  activeMenuIndex.value = collection.value.findIndex(({ link }) => 
+    route.path === link || route.path.startsWith(`${link}/`)
+  )
+}
+
+function updateDotPosition(index = activeMenuIndex.value) {
   if (menuItemEls.value.length > 0 && index !== null && index !== undefined) {
     const el = menuItemEls.value[index]
     if (el) {
-      dotPosition.value = el.offsetLeft
+      const elOffsetLeft = el.offsetLeft
+      const elWidth = el.offsetWidth
+      const navbarWidth = el.closest('.navbar').offsetWidth
+
+      // Assurez-vous que le dot ne sort pas des limites de l'écran
+      if (elOffsetLeft + elWidth <= navbarWidth) {
+        dotPosition.value = elOffsetLeft + elWidth / 2 // Centrer le dot
+      }
     }
   }
 }
 </script>
+
 
 <style scoped>
 .navbar {
@@ -135,4 +240,4 @@ h1 {
   }
   
 }
-</style>
+</style> -->
