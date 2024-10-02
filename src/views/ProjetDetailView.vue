@@ -85,15 +85,6 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import moiImage from '@/assets/img/moi.png';
-import moiImage1 from '@/assets/img/me.png';
-import moiImage2 from '@/assets/img/moi22.png';
-import moiImage3 from '@/assets/img/moi22.png';
-import moiImage4 from '@/assets/img/me.jpg';
-import moiImage5 from '@/assets/img/me2.png';
-import moiImage6 from '@/assets/img/me22.png';
-import moiImage7 from '@/assets/img/me222.png';
-
 import Graphique from '@/assets/img/graphique.png';
 import VoydofSpace from '@/assets/img/voydof_space.png';
 import TimeCapsuleLodge from '@/assets/img/tcl.png';

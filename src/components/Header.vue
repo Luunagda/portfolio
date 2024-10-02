@@ -27,7 +27,7 @@
           </RouterLink>
         </li>
         <li>
-          <a href="@/assets/CV.pdf" download="CV.pdf">
+          <a href="../assets/CV.pdf" download="CV.pdf">
             CV
           </a>
         </li>
