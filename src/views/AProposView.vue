@@ -16,13 +16,39 @@
                   Je m'appelle <mark class="blue">Cyan</mark> Henaff (oui comme la couleur et la marque de pâté....) 
                 </p> -->
                 <p>
-                  Je suis étudiante en <mark class="pink">3ème année de Bachelor Universitaire des Métiers du Multimédias et de l'Internet</mark> à l'Université de Nouvelle-Calédonie. J'aime <mark class="blue">la musique, le cinéma, les séries, lire et la culture japonaise.</mark> Depuis le collège, je dessine, je crée des bijoux et des court-métrages afin de laisser libre court à mon imagination. Je souhaite exercer un métier qui lie à la fois <mark class="yellow">la créativité et le technique</mark>. 
-                  Après avoir suivi la spécialité Numérique et Sciences Informatiques au lycée, j'ai découvert une véritable <mark class="blue">passion pour le développement web</mark>, réalisant que je pouvais aussi exprimer ma créativité en concevant des applications web.
+                  Je suis étudiante en <mark class="pink">1ère année de Master en Management des Technologies Interactives 3D aux Arts et Métiers à Laval. Diplomée d’un Bachelor Universitaire de Technologies des Métiers du Multimédia et de l’Internet</mark> à l’Université de Nouvelle-Calédonie, j’ai développé une approche mêlant création et technique. Passionnée par <mark class="blue">le cinéma, la musique, la culture japonaise et les univers visuels</mark>, je crée depuis toujours pour donner forme à mon imagination. J'aime <mark class="blue">voyager c'est pourquoi j'ai réalisé un séjour de 4 moi en Nouvelle-Zélande en début 2025.</mark>
+                  Aujourd’hui, je me spécialise dans <mark class="yellow">la 3D, le développement sur Unity en C# et les technologies immersives</mark>,avec l’envie de concevoir des expériences interactives mêlant esthétique, narration et innovation technologique.
                   <br><br>
+
                   <span>Date de naissance :</span> 17 septembre 2003
+                  <br><br>
+                  <span>Permis de conduire :</span> B2
+
                 </p>
                 <dl>
                     <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+                        <li>
+                            <hr />
+                            <div class="timeline-middle">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="h-5 w-5">
+                                <path
+                                fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                                clip-rule="evenodd" />
+                            </svg>
+                            </div>
+                            <div class="timeline-end mb-10">
+                            <time class="font-mono italic">2025</time>
+                            <div class="font-mono">4 mois</div>
+                            <div class="text-lg font-black">Programme Vacance Travail (PVT) En Nouvelle-Zélande</div>
+                            Woofing - Jeuine fille au pair
+                            </div>
+                            <hr />
+                        </li>
                         <li>
                             <div class="timeline-middle">
                             <svg
@@ -38,6 +64,7 @@
                             </div>
                             <div class="timeline-start mb-10 md:text-end">
                                 <time class="font-mono italic">2024</time>
+                                <div class="font-mono">1 mois</div>
                                 <div class="font-black title-timeline">Alternance à Lagoon, un fournisseur d'accès à internet calédonien</div>
                                 Développement front - Sécurité - Vue.js - Nuxt.js
                             </div>
@@ -59,6 +86,7 @@
                             </div>
                             <div class="timeline-end mb-10">
                             <time class="font-mono italic">2023</time>
+                            <div class="font-mono">2 mois</div>
                             <div class="text-lg font-black">Stage à Lagoon</div>
                             Création d’un jeu 3D en ligne - React Three Fiber - Three.js - Figma - UI/UX Design
                             </div>
@@ -80,6 +108,7 @@
                             </div>
                             <div class="timeline-start mb-10 md:text-end">
                             <time class="font-mono italic">2022</time>
+                            <div class="font-mono">1 mois</div>
                             <div class="text-lg font-black">Stage à CANAL+ Calédonie</div>
                             Montage vidéo - Assistance technique lors d’un tournage de la boîte à question - Premiere Pro
                             </div>

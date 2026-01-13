@@ -9,7 +9,7 @@
   export default {
     data() {
       return {
-        words: ["je m'appelle Cyan Henaff", "je suis développeuse web", "j'aime l'audiovisuel", "je suis créative"], // Liste des mots à afficher
+        words: ["je m'appelle Cyan Henaff", "je suis développeuse 3D", "je crée des expériences interactives", "je travaille sur Unity en C#", "je m'intéresse à la XR"],
         currentWord: "", // Le mot en cours d'affichage
         wordIndex: 0, // Index du mot actuel dans la liste
         typingDelay: 100, // Délai entre chaque lettre lors de l'écriture

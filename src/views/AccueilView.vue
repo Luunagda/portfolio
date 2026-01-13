@@ -16,21 +16,27 @@ import Unity from '@/assets/svg/unity.svg';
 import Vue from '@/assets/svg/vue.svg';
 import Php from '@/assets/svg/php.svg';
 import Symfony from '@/assets/svg/symfony.svg';
+import Blender from '@/assets/svg/blender.svg';
+import Painter from '@/assets/svg/painter3d.svg';
+import CSharp from '@/assets/svg/c_sharp.svg';
 
 const images = ref([
+  CSharp,
+  Unity,
+  Blender, 
+  Painter,
+  Git,
+  // Css,
+  // Html,
+  Js,
+  Php,
+  Vue,
+  Angular,
+  Symfony,
   AfterEffect,
   Illustrator,
   Photoshop,
   PremierePro,
-  Angular,
-  Css,
-  Html,
-  Js,
-  Git,
-  Unity,
-  Vue,
-  Php,
-  Symfony,
 ]);
 
 const isAllImagesVisible = ref(false);
@@ -136,6 +142,76 @@ onBeforeUnmount(() => {
       <video controls loop muted autoplay>
         <source src="@/assets/video/cv-video.mp4" type="video/mp4">
       </video>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="card bg-base-100 w-96 shadow-sm mx-4">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Mecha</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <!-- <button class="btn btn-primary">Buy Now</button> -->
+            <div class="btn-clavier entree">
+              <a href="/projets">
+                <div 
+                class="backspace"
+                >
+                Voir +
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-base-100 w-96 shadow-sm mx-4">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Cinéma de genre 3D</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <div class="btn-clavier entree">
+              <a href="/projets">
+                <div 
+                class="backspace"
+                >
+                Voir +
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-base-100 w-96 shadow-sm mx-4">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Binding of the Cube</h2>
+          <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+          <div class="card-actions justify-end">
+            <div class="btn-clavier entree">
+              <a href="/projets">
+                <div 
+                class="backspace"
+                >
+                Voir +
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
