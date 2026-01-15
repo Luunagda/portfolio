@@ -55,14 +55,14 @@
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-import moiImage from '@/assets/img/moi.png';
-import moiImage1 from '@/assets/img/me.png';
-import moiImage2 from '@/assets/img/moi22.png';
-import moiImage3 from '@/assets/img/moi22.png';
-import moiImage4 from '@/assets/img/me.jpg';
-import moiImage5 from '@/assets/img/me2.png';
-import moiImage6 from '@/assets/img/me22.png';
-import moiImage7 from '@/assets/img/me222.png';
+// import moiImage from '@/assets/img/moi.png';
+// import moiImage1 from '@/assets/img/me.png';
+// import moiImage2 from '@/assets/img/moi22.png';
+// import moiImage3 from '@/assets/img/moi22.png';
+// import moiImage4 from '@/assets/img/me.jpg';
+// import moiImage5 from '@/assets/img/me2.png';
+// import moiImage6 from '@/assets/img/me22.png';
+// import moiImage7 from '@/assets/img/me222.png';
 
 import Graphique from '@/assets/img/graphique.png';
 import VoydofSpace from '@/assets/img/voydof_space.png';
@@ -79,17 +79,17 @@ import Galerie from '@/assets/img/galerie.png';
 const router = useRouter();
 // Projets et catégories
 const projects = ref([
+  { title: 'Visite virtuelle de l\'IUT', image: VV, categories: ['Développement web', 'Audiovisuel'], slug: formatString('Visite virtuelle de l\'IUT') },
+  { title: 'Galerie moteur de recherche', image: Galerie, categories: ['Unity'], slug: formatString('Galerie moteur de recherche') },
+  { title: 'Création d\'un Backoffice', image: Symfony, categories: ['Développement web'], slug: formatString('Création d\'un Backoffice') },
   { title: 'Voydof Space', image: VoydofSpace, categories: ['Design', 'Développement web', 'Audiovisuel'], slug: formatString('Voydof Space') },
   { title: 'Time Capsule Lodge', image: TimeCapsuleLodge, categories: ['Développement web'], slug: formatString('Time Capsule Lodge') },
+  { title: 'Graphique sur le nombre d\'entrée par film au cinéma', image: Graphique, categories: ['Développement web', 'Design'], slug: formatString('Graphique sur le nombre d\'entrée par film au cinéma') },
   { title: 'Bref, j\'ai beaucoup de passions', image: Bref, categories: ['Audiovisuel'], slug: formatString('Bref, j\'ai beaucoup de passions') },
   { title: 'Course de carriole', image: Carriole, categories: ['Unity'], slug: formatString('Course de carriole') },
   // { title: 'Erakis', image: moiImage4, categories: ['Design'], slug: formatString('Erakis') },
-  { title: 'Graphique sur le nombre d\'entrée par film au cinéma', image: Graphique, categories: ['Développement web', 'Design'], slug: formatString('Graphique sur le nombre d\'entrée par film au cinéma') },
-  { title: 'Visite virtuelle de l\'IUT', image: VV, categories: ['Développement web', 'Audiovisuel'], slug: formatString('Visite virtuelle de l\'IUT') },
   // { title: 'Photomontage', image: moiImage7, categories: ['Design'], slug: formatString('Photomontage') },
   // { title: 'Projet angular ', image: moiImage6, categories: ['Développement web'], slug: formatString('Projet angular ') },
-  { title: 'Création d\'un Backoffice', image: Symfony, categories: ['Développement web'], slug: formatString('Création d\'un Backoffice') },
-  { title: 'Galerie moteur de recherche', image: Galerie, categories: ['Unity'], slug: formatString('Galerie moteur de recherche') },
   //{ title: 'Carte Leaflet', image: moiImage5, categories: ['Développement web'], slug: formatString('Carte Leaflet') },
   // { title: 'Jeu Phaser multijoueur', image: moiImage, categories: ['Développement web'], slug: formatString('Jeu Phaser multijoueur') },
   // { title: 'Rugby', image: moiImage3, categories: ['Développement web', 'Unity', 'Audiovisuel'], slug: formatString('Rugby') },
